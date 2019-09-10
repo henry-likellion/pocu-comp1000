@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Assignment1
 {
@@ -6,8 +7,8 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(BigNumberCalculator.ToBinary("*123"));
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(BigNumberCalculator.ToDecimal("0x843FF66FFCDDCDDDCDFFF"));
+            // Debug.Assert(BigNumberCalculator.ToDecimal("0x843FF66FFCDDCDDDCDFFF") == "-9350296660948911804063745");
         }
     }
 }
