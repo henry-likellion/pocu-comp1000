@@ -98,76 +98,76 @@ namespace Assignment1
                 }
 
                 num = num.Remove(0, 2);
-                string NumHexToBinary = "0b";
+                string numHexToBinary = "0b";
 
                 for (int i = 0; i < num.Length; ++i)
                 {
                     if (num[i] == '0')
                     {
-                        NumHexToBinary += "0000";
+                        numHexToBinary += "0000";
                     }
                     else if (num[i] == '1')
                     {
-                        NumHexToBinary += "0001";
+                        numHexToBinary += "0001";
                     }
                     else if (num[i] == '2')
                     {
-                        NumHexToBinary += "0010";
+                        numHexToBinary += "0010";
                     }
                     else if (num[i] == '3')
                     {
-                        NumHexToBinary += "0011";
+                        numHexToBinary += "0011";
                     }
                     else if (num[i] == '4')
                     {
-                        NumHexToBinary += "0100";
+                        numHexToBinary += "0100";
                     }
                     else if (num[i] == '5')
                     {
-                        NumHexToBinary += "0101";
+                        numHexToBinary += "0101";
                     }
                     else if (num[i] == '6')
                     {
-                        NumHexToBinary += "0110";
+                        numHexToBinary += "0110";
                     }
                     else if (num[i] == '7')
                     {
-                        NumHexToBinary += "0111";
+                        numHexToBinary += "0111";
                     }
                     else if (num[i] == '8')
                     {
-                        NumHexToBinary += "1000";
+                        numHexToBinary += "1000";
                     }
                     else if (num[i] == '9')
                     {
-                        NumHexToBinary += "1001";
+                        numHexToBinary += "1001";
                     }
                     else if (num[i] == 'A')
                     {
-                        NumHexToBinary += "1010";
+                        numHexToBinary += "1010";
                     }
                     else if (num[i] == 'B')
                     {
-                        NumHexToBinary += "1011";
+                        numHexToBinary += "1011";
                     }
                     else if (num[i] == 'C')
                     {
-                        NumHexToBinary += "1100";
+                        numHexToBinary += "1100";
                     }
                     else if (num[i] == 'D')
                     {
-                        NumHexToBinary += "1101";
+                        numHexToBinary += "1101";
                     }
                     else if (num[i] == 'E')
                     {
-                        NumHexToBinary += "1110";
+                        numHexToBinary += "1110";
                     }
                     else if (num[i] == 'F')
                     {
-                        NumHexToBinary += "1111";
+                        numHexToBinary += "1111";
                     }
                 }
-                return NumHexToBinary;
+                return numHexToBinary;
             }
 
             if (IsValidDecimal(num))
