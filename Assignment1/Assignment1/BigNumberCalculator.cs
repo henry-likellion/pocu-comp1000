@@ -4,8 +4,8 @@ namespace Assignment1
 {
     public class BigNumberCalculator
     {
-        public int BitCount { get; }
-        public EMode Mode { get; }
+        private int BitCount { get; }
+        private EMode Mode { get; }
         public BigNumberCalculator(int bitCount, EMode mode)
         {
             BitCount = bitCount;
@@ -14,13 +14,12 @@ namespace Assignment1
 
         public static string GetOnesComplement(string num)
         {
-
-            if (num == "0b")
+            if (!num.StartsWith("0b"))
             {
                 return null;
             }
 
-            if (!num.StartsWith("0b"))
+            if (!IsValidBinary(num))
             {
                 return null;
             }
@@ -35,10 +34,6 @@ namespace Assignment1
                 {
                     num = num.Remove(i, 1).Insert(i, "0");
                 }
-                else
-                {
-                    return null;
-                }
             }
 
             return num;
@@ -46,21 +41,21 @@ namespace Assignment1
 
         public static string GetTwosComplement(string num)
         {
-            if (num == "0b")
-            {
-                return null;
-            }
-
             if (!num.StartsWith("0b"))
             {
                 return null;
             }
 
-            bool bWasCarryOver = false;
+            if (!IsValidBinary(num))
+            {
+                return null;
+            }
+
+            bool bCarryover = false;
 
             for (int i = num.Length - 1; i > 1; --i)
             {
-                if (bWasCarryOver)
+                if (bCarryover)
                 {
                     if (num[i] == '0')
                     {
@@ -70,20 +65,12 @@ namespace Assignment1
                     {
                         num = num.Remove(i, 1).Insert(i, "0");
                     }
-                    else
-                    {
-                        return null;
-                    }
                 }
                 else
                 {
                     if (num[i] == '1')
                     {
-                        bWasCarryOver = true;
-                    }
-                    else if (num[i] != '0')
-                    {
-                        return null;
+                        bCarryover = true;
                     }
                 }
             }
@@ -93,11 +80,6 @@ namespace Assignment1
 
         public static string ToBinary(string num)
         {
-            if (num == "0b" || num == "0x")
-            {
-                return null;
-            }
-
             if (num.StartsWith("0b"))
             {
                 if (!IsValidBinary(num))
@@ -110,6 +92,11 @@ namespace Assignment1
 
             if (num.StartsWith("0x"))
             {
+                if (!IsValidHex(num))
+                {
+                    return null;
+                }
+
                 num = num.Remove(0, 2);
                 string NumHexToBinary = "0b";
 
@@ -179,10 +166,6 @@ namespace Assignment1
                     {
                         NumHexToBinary += "1111";
                     }
-                    else
-                    {
-                        return null;
-                    }
                 }
                 return NumHexToBinary;
             }
@@ -239,11 +222,6 @@ namespace Assignment1
 
         public static string ToHex(string num)
         {
-            if (num == "0b" || num == "0x")
-            {
-                return null;
-            }
-
             if (num.StartsWith("0x"))
             {
                 if (!IsValidHex(num))
@@ -282,11 +260,6 @@ namespace Assignment1
 
         public static string ToDecimal(string num)
         {
-            if (num == "0b" || num == "0x")
-            {
-                return null;
-            }
-
             if (num.StartsWith("0x"))
             {
                 string numberHexToBinary = ToBinary(num);
@@ -303,12 +276,9 @@ namespace Assignment1
 
             if (num.StartsWith("0b"))
             {
-                for (int i = 2; i < num.Length; ++i)
+                if (!IsValidBinary(num))
                 {
-                    if (num[i] != '0' && num[i] != '1')
-                    {
-                        return null;
-                    }
+                    return null;
                 }
 
                 string numberBinaryToDecimal = GetDecimalFromBinary(num);
@@ -548,6 +518,11 @@ namespace Assignment1
 
         public static bool IsValidBinary(string num)
         {
+            if (num == "0b")
+            {
+                return false;
+            }
+
             for (int i = 2; i < num.Length; ++i)
             {
                 if (num[i] != '0' && num[i] != '1')
