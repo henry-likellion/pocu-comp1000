@@ -316,7 +316,7 @@ namespace Assignment1
         {
             bOverflow = false;
             // check validity of input numbers
-            if (!IsValidNumber(num1) && !IsValidNumber(num2))
+            if (!IsValidNumber(num1) || !IsValidNumber(num2))
             {
                 return null;
             }
@@ -451,7 +451,7 @@ namespace Assignment1
             bOverflow = false;
 
             // check validity of input numbers
-            if (!IsValidNumber(num1) && !IsValidNumber(num2))
+            if (!IsValidNumber(num1) || !IsValidNumber(num2))
             {
                 return null;
             }
