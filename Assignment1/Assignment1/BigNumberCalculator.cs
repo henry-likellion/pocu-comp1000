@@ -80,6 +80,11 @@ namespace Assignment1
 
         public static string ToBinary(string num)
         {
+            if (string.IsNullOrWhiteSpace(num))
+            {
+                return null;
+            }
+
             if (num.StartsWith("0b"))
             {
                 if (!IsValidBinary(num))
@@ -207,7 +212,10 @@ namespace Assignment1
                 if (bIsNegative)
                 {
                     numDecimalToBinary = GetTwosComplement(numDecimalToBinary);
-                    numDecimalToBinary = numDecimalToBinary.Insert(2, "1");
+                    if (numDecimalToBinary[2] != '1')
+                    {
+                        numDecimalToBinary = numDecimalToBinary.Insert(2, "1");
+                    }            
                 }
                 else
                 {
@@ -222,6 +230,11 @@ namespace Assignment1
 
         public static string ToHex(string num)
         {
+            if (string.IsNullOrWhiteSpace(num))
+            {
+                return null;
+            }
+
             if (num.StartsWith("0x"))
             {
                 if (!IsValidHex(num))
@@ -260,6 +273,11 @@ namespace Assignment1
 
         public static string ToDecimal(string num)
         {
+            if (string.IsNullOrWhiteSpace(num))
+            {
+                return null;
+            }
+
             if (num.StartsWith("0x"))
             {
                 string numberHexToBinary = ToBinary(num);
@@ -480,8 +498,10 @@ namespace Assignment1
         }
         public static bool IsValidDecimal(string num)
         {
-            char firstCharacter = num[0];
-            char firstNumber;
+            if(string.IsNullOrWhiteSpace(num))
+            {
+                return false;
+            }
 
             if (num == "0")
             {
@@ -492,6 +512,9 @@ namespace Assignment1
             {
                 return false;
             }
+
+            char firstCharacter = num[0];
+            char firstNumber;
 
             if (firstCharacter == '-')
             {
@@ -541,6 +564,11 @@ namespace Assignment1
 
         public static bool IsValidHex(string num)
         {
+            if (num == "0x")
+            {
+                return false;
+            }
+
             for (int i = 2; i < num.Length; ++i)
             {
                 if (!int.TryParse(num[i].ToString(), out int digitNum) && num[i] != 'A' && num[i] != 'B' && num[i] != 'C' && num[i] != 'D' && num[i] != 'E' && num[i] != 'F')

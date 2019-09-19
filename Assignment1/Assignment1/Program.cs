@@ -6,9 +6,6 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            Debug.Assert(BigNumberCalculator.IsValidDecimal("+11") == false);
-
-
             Debug.Assert(BigNumberCalculator.GetOnesComplement("as89fdf0") == null);
             Debug.Assert(BigNumberCalculator.GetOnesComplement("0xFAKEHEX") == null);
             Debug.Assert(BigNumberCalculator.GetOnesComplement("0bFAKEBINARY") == null);
@@ -24,9 +21,9 @@ namespace Assignment1
             Debug.Assert(BigNumberCalculator.GetTwosComplement("0b0000111010110") == "0b1111000101010");
             Debug.Assert(BigNumberCalculator.GetTwosComplement("0b1000") == "0b1000");
 
-            Debug.Assert(BigNumberCalculator.ToBinary("   ") == null);
+            Debug.Assert(BigNumberCalculator.ToBinary("0b00001101011") == "0b00001101011");
             Debug.Assert(BigNumberCalculator.ToBinary("0x00F24") == "0b00000000111100100100");
-            Debug.Assert(BigNumberCalculator.ToBinary("124") == "0b01111100");
+            Debug.Assert(BigNumberCalculator.ToBinary("123") == "0b01111011");
             Debug.Assert(BigNumberCalculator.ToBinary("-123") == "0b10000101");
 
             Debug.Assert(BigNumberCalculator.ToDecimal("-144") == "-144");
