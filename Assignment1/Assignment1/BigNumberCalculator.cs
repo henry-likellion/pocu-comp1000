@@ -498,7 +498,7 @@ namespace Assignment1
         }
         public static bool IsValidDecimal(string num)
         {
-            if(string.IsNullOrWhiteSpace(num))
+            if (string.IsNullOrWhiteSpace(num))
             {
                 return false;
             }
@@ -582,6 +582,11 @@ namespace Assignment1
 
         public static bool IsValidNumber(string num)
         {
+            if (string.IsNullOrWhiteSpace(num))
+            {
+                return false;
+            }
+
             if (num == "0b" || num == "0x")
             {
                 return false;
