@@ -488,6 +488,11 @@ namespace Assignment1
                 return true;
             }
 
+            if (num == "-")
+            {
+                return false;
+            }
+
             if (firstCharacter == '-')
             {
                 firstNumber = num[1];
