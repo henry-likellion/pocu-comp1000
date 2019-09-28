@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Lab4
 {
     public sealed class MultiSet
     {
-        private readonly List<string> Set = new List<string>();
+        private List<string> Set = new List<string>();
 
         public void Add(string element)
         {
