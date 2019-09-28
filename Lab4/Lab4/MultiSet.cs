@@ -125,7 +125,12 @@ namespace Lab4
         {
             if (mSet.Count == 0)
             {
-                return new List<MultiSet>(1);
+                List<MultiSet> powerSetNoElement = new List<MultiSet>(1)
+                {
+                    new MultiSet()
+                };
+
+                return powerSetNoElement;
             }
 
             mSet.Sort();
