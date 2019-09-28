@@ -4,22 +4,22 @@ namespace Lab4
 {
     public sealed class MultiSet
     {
-        private List<string> Set = new List<string>();
+        private List<string> mSet = new List<string>();
 
         public void Add(string element)
         {
-            Set.Add(element);
+            mSet.Add(element);
         }
 
         public bool Remove(string element)
         {
-            return Set.Remove(element);
+            return mSet.Remove(element);
         }
 
         public uint GetMultiplicity(string element)
         {
             uint count = 0;
-            foreach (string el in Set)
+            foreach (string el in mSet)
             {
                 if (el == element)
                 {
@@ -31,8 +31,8 @@ namespace Lab4
 
         public List<string> ToList()
         {
-            Set.Sort();
-            return Set;
+            mSet.Sort();
+            return mSet;
         }
 
         public MultiSet Union(MultiSet other)
@@ -40,7 +40,7 @@ namespace Lab4
             List<string> elementsChecked = new List<string>();
             MultiSet union = new MultiSet();
 
-            foreach (string el in Set)
+            foreach (string el in mSet)
             {
                 if (!elementsChecked.Contains(el))
                 {
@@ -76,7 +76,7 @@ namespace Lab4
             List<string> elementsChecked = new List<string>();
             MultiSet intersect = new MultiSet();
 
-            foreach (string el in Set)
+            foreach (string el in mSet)
             {
                 if (!elementsChecked.Contains(el))
                 {
@@ -101,7 +101,7 @@ namespace Lab4
             List<string> elementsChecked = new List<string>();
             MultiSet difference = new MultiSet();
 
-            foreach (string el in Set)
+            foreach (string el in mSet)
             {
                 if (!elementsChecked.Contains(el))
                 {
@@ -123,17 +123,21 @@ namespace Lab4
 
         public List<MultiSet> FindPowerSet()
         {
+            if (mSet.Count == 0)
+            {
+                return new List<MultiSet>(1);
+            }
 
-            Set.Sort();
+            mSet.Sort();
             List<string> sortedElementsNoRepeat = new List<string>();
             List<int> elementCounts = new List<int>();
 
-            string currentElement = Set[0];
+            string currentElement = mSet[0];
             int counter = 1;
 
-            for (int i = 1; i < Set.Count; ++i)
+            for (int i = 1; i < mSet.Count; ++i)
             {
-                if (currentElement == Set[i])
+                if (currentElement == mSet[i])
                 {
                     ++counter;
                 }
@@ -142,11 +146,11 @@ namespace Lab4
                     sortedElementsNoRepeat.Add(currentElement);
                     elementCounts.Add(counter);
 
-                    currentElement = Set[i];
+                    currentElement = mSet[i];
                     counter = 1;
                 }
 
-                if (i == Set.Count - 1)
+                if (i == mSet.Count - 1)
                 {
                     sortedElementsNoRepeat.Add(currentElement);
                     elementCounts.Add(counter);
@@ -176,7 +180,7 @@ namespace Lab4
         {
             MultiSet primarySet = new MultiSet();
 
-            foreach (string element in Set)
+            foreach (string element in mSet)
             {
                 primarySet.Add(element);
             }
@@ -194,7 +198,7 @@ namespace Lab4
         {
             MultiSet primarySet = new MultiSet();
 
-            foreach (string element in Set)
+            foreach (string element in mSet)
             {
                 primarySet.Add(element);
             }
