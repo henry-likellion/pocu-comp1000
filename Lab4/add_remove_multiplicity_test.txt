@@ -1,0 +1,13 @@
+MultiSet set = new MultiSet();
+
+set.Add("a");   // set: { a }
+set.Add("b");   // set: { a, b }
+set.Add("c");   // set: { a, b, c }
+set.Add("c");   // set: { a, b, c, c }
+set.Add("ab");  // set: { a, ab, b, c, c }
+
+Debug.Assert(set.Remove("dd") == false);
+Debug.Assert(set.Remove("ab") == true);
+
+Debug.Assert(set.GetMultiplicity("c") == 2);
+Debug.Assert(set.GetMultiplicity("ab") == 0);

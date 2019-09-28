@@ -1,0 +1,15 @@
+MultiSet set = new MultiSet();
+
+set.Add("apple");
+set.Add("watermelon");
+set.Add("plum");
+set.Add("apple");     
+
+List<string> list = set.ToList();
+
+List<string> expectedList = new List<string> {"apple", "apple", "plum", "watermelon"};
+
+for (int i = 0; i < expectedList.Length; ++i)
+{
+    Debug.Assert(expectedList[i] == list[i]);
+}
