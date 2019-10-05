@@ -251,7 +251,6 @@ namespace Lab4
                     AddElementsPowerSetRecursive(powerSet, sortedElementsNoRepeat, elementCounts, elementIndex + 1, nextStringStartPowerSet, currentIndexPowerSet - 1);
                 }
             }
-
         }
     }
 }
