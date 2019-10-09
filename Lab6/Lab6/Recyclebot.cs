@@ -45,7 +45,7 @@ namespace Lab6
                 {
                     if (item.IsToxicWaste == true)
                     {
-                        if (item.Type == EType.Electronics && item.Type == EType.Furniture)
+                        if (item.Type == EType.Electronics || item.Type == EType.Furniture)
                         {
                             dumpItems.Add(item);
                         }
@@ -58,7 +58,10 @@ namespace Lab6
                 }
                 else
                 {
-                    dumpItems.Add(item);
+                    if (item.Type == EType.Electronics || item.Type == EType.Furniture)
+                    {
+                        dumpItems.Add(item);
+                    }
                 }
             }
 
