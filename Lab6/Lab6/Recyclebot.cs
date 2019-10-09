@@ -41,7 +41,7 @@ namespace Lab6
             List<Item> dumpItems = new List<Item>();
             foreach (var item in NonRecycleItems)
             {
-                if (!item.Volume.Equals(10) && !item.Volume.Equals(15) && !item.Volume.Equals(11))
+                if (!item.Volume.Equals(10) && !item.Volume.Equals(11) && !item.Volume.Equals(15))
                 {
                     if (item.IsToxicWaste != false)
                     {
@@ -49,6 +49,10 @@ namespace Lab6
                         {
                             dumpItems.Add(item);
                         }
+                    }
+                    else
+                    {
+                        dumpItems.Add(item);
                     }
 
                 }
