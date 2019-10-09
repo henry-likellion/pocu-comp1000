@@ -15,12 +15,12 @@
     {
       "Order": 0,
       "ID": "55110899-c797-45b9-8874-efefe4026c99",
-      "Value": true
+      "Value": false
     },
     {
       "Order": 1,
       "ID": "324c15b6-f38b-4e14-80ed-2d3aad6c2a02",
-      "Value": true
+      "Value": false
     }
   ],
   "OutputCoords": {

@@ -1,0 +1,105 @@
+{
+  "Version": {
+    "Major": 1,
+    "Minor": 0
+  },
+  "PanCoords": {
+    "X": 165.535156,
+    "Y": 18.4179688
+  },
+  "InputCoords": {
+    "X": -85.0,
+    "Y": 161.0
+  },
+  "Inputs": [
+    {
+      "Order": 0,
+      "ID": "af68d780-5c43-43ce-af2d-5bfee5c8616d",
+      "Value": false
+    },
+    {
+      "Order": 1,
+      "ID": "46bb1920-c611-41ca-99c0-10f907870276",
+      "Value": false
+    },
+    {
+      "Order": 2,
+      "ID": "b84fd4a0-a5d9-45c2-85e8-58388228abcc",
+      "Value": true
+    }
+  ],
+  "OutputCoords": {
+    "X": 783.7461,
+    "Y": 188.339844
+  },
+  "Outputs": [
+    {
+      "Order": 0,
+      "ID": "c1895b90-b89a-4acd-a65a-5f6118171862",
+      "InputSource": "e0426ecc-f3ba-413e-97e5-f07f3db61fbc"
+    }
+  ],
+  "Gates": [
+    {
+      "ID": "32df6fe4-8a88-4342-9dea-7f4776ca97e3",
+      "Inputs": [
+        "b84fd4a0-a5d9-45c2-85e8-58388228abcc",
+        null
+      ],
+      "X": 187.027344,
+      "Y": 306.902344,
+      "Type": "NOT"
+    },
+    {
+      "ID": "e0426ecc-f3ba-413e-97e5-f07f3db61fbc",
+      "Inputs": [
+        "c7c6df2d-ea86-45f2-bfa1-6c5444440d1e",
+        "0edd0fcf-458d-4ba2-9866-e9f6d4d5eb06"
+      ],
+      "X": 548.792969,
+      "Y": 233.199219,
+      "Type": "OR"
+    },
+    {
+      "ID": "0edd0fcf-458d-4ba2-9866-e9f6d4d5eb06",
+      "Inputs": [
+        "46bb1920-c611-41ca-99c0-10f907870276",
+        "32df6fe4-8a88-4342-9dea-7f4776ca97e3"
+      ],
+      "X": 379.824219,
+      "Y": 303.8711,
+      "Type": "AND"
+    },
+    {
+      "ID": "28dc2f10-642f-4b4f-8ee3-5f270ad4a44d",
+      "Inputs": [
+        "af68d780-5c43-43ce-af2d-5bfee5c8616d",
+        "b84fd4a0-a5d9-45c2-85e8-58388228abcc"
+      ],
+      "X": 178.339844,
+      "Y": 217.707031,
+      "Type": "AND"
+    },
+    {
+      "ID": "c7c6df2d-ea86-45f2-bfa1-6c5444440d1e",
+      "Inputs": [
+        "96aac2c3-cd8f-433f-9a54-6ebf607ff916",
+        "28dc2f10-642f-4b4f-8ee3-5f270ad4a44d"
+      ],
+      "X": 375.105469,
+      "Y": 175.953125,
+      "Type": "OR"
+    },
+    {
+      "ID": "96aac2c3-cd8f-433f-9a54-6ebf607ff916",
+      "Inputs": [
+        "af68d780-5c43-43ce-af2d-5bfee5c8616d",
+        "46bb1920-c611-41ca-99c0-10f907870276"
+      ],
+      "X": 179.714844,
+      "Y": 129.824219,
+      "Type": "AND"
+    }
+  ],
+  "AllowedGateTypes": []
+}
