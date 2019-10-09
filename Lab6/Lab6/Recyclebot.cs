@@ -43,9 +43,9 @@ namespace Lab6
             {
                 if (!item.Volume.Equals(10) && !item.Volume.Equals(11) && !item.Volume.Equals(15))
                 {
-                    if (item.IsToxicWaste == false)
+                    if (item.IsToxicWaste == true)
                     {
-                        if (item.Type != EType.Electronics && item.Type != EType.Furniture)
+                        if (item.Type == EType.Electronics && item.Type == EType.Furniture)
                         {
                             dumpItems.Add(item);
                         }
