@@ -4,17 +4,17 @@ namespace Lab6
 {
     public class Recyclebot
     {
-        readonly List<Item> mRecycleItems = new List<Item>();
-        readonly List<Item> mnonRecycleItems = new List<Item>();
+        readonly List<Item> MrecycleItems = new List<Item>();
+        readonly List<Item> MnonRecycleItems = new List<Item>();
 
         public List<Item> RecycleItems
         {
-            get { return mRecycleItems; }
+            get { return MrecycleItems; }
         }
 
         public List<Item> NonRecycleItems
         {
-            get { return mnonRecycleItems; }
+            get { return MnonRecycleItems; }
         }
 
         public void Add(Item item)
@@ -45,7 +45,7 @@ namespace Lab6
                 {
                     if (item.IsToxicWaste != false)
                     {
-                        if (item.Type != EType.Electronics || item.Type != EType.Furniture)
+                        if (item.Type != EType.Electronics && item.Type != EType.Furniture)
                         {
                             dumpItems.Add(item);
                         }
