@@ -88,17 +88,7 @@ namespace Lab7
             Debug.Assert(sortKeys.Count == frames.Count);
 
             List<Frame> sortedFrames = sort(sortKeys, frames);
-            Console.WriteLine(sortedFrames[0].ID);
-            Console.WriteLine(sortedFrames[1].ID);
-            Console.WriteLine(sortedFrames[2].ID);
-            Console.WriteLine(sortedFrames[3].ID);
-            Console.WriteLine(sortedFrames[4].ID);
-            Console.WriteLine(sortedFrames[5].ID);
-            Console.WriteLine(sortedFrames[6].ID);
-            Console.WriteLine(frames[2].ID);
-            Console.WriteLine(frames[0].ID);
-            Console.WriteLine(frames[5].ID);
-            Console.WriteLine(frames[4].ID);
+
             Debug.Assert(sortedFrames[0].ID == frames[2].ID);
             Debug.Assert(sortedFrames[1].ID == frames[0].ID);
             Debug.Assert(sortedFrames[2].ID == frames[5].ID);

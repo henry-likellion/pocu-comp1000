@@ -10,24 +10,24 @@ namespace Lab7
         public uint ID { get; private set; }
         public string Name { get; private set; }
 
-        public Frame (uint id, string name)
+        public Frame(uint id, string name)
         {
             ID = id;
             Name = name;
             Features = EFeatures.Default;
         }
 
-        public void ToggleFeatures (EFeatures features)
+        public void ToggleFeatures(EFeatures features)
         {
             Features ^= features;
         } 
 
-        public void TurnOnFeatures (EFeatures features)
+        public void TurnOnFeatures(EFeatures features)
         {
             Features |= features;
         }
 
-        public void TurnOffFeatures (EFeatures features)
+        public void TurnOffFeatures(EFeatures features)
         {
             Features &= ~features;
         }

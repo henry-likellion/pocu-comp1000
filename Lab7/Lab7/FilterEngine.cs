@@ -6,7 +6,7 @@ namespace Lab7
 {
     public static class FilterEngine
     {
-        public static List<Frame> FilterFrames (List<Frame> frames, EFeatures features)
+        public static List<Frame> FilterFrames(List<Frame> frames, EFeatures features)
         {
             List<Frame> filteredFrames = new List<Frame>();
 
@@ -59,14 +59,44 @@ namespace Lab7
 
             for (int i = 0; i < frames.Count; ++i)
             {
-                framesKeys.Add(1);
+                framesKeys.Add(0);
 
                 for (int j = 0; j < features.Count; ++j)
                 {
                     if ((frames[i].Features & features[j]) == features[j])
                     {
-                        framesKeys[i] = 128 - j;
-                        break;
+                        if (j == 0)
+                        {
+                            framesKeys[i] += 128;
+                        }
+                        else if (j == 1)
+                        {
+                            framesKeys[i] += 64;
+                        }
+                        else if (j == 2)
+                        {
+                            framesKeys[i] += 32;
+                        }
+                        else if (j == 3)
+                        {
+                            framesKeys[i] += 16;
+                        }
+                        else if (j == 4)
+                        {
+                            framesKeys[i] += 8;
+                        }
+                        else if (j == 5)
+                        {
+                            framesKeys[i] += 4;
+                        }
+                        else if (j == 6)
+                        {
+                            framesKeys[i] += 2;
+                        }
+                        else if (j == 7)
+                        {
+                            framesKeys[i] += 1;
+                        }
                     }
                 }
             }
