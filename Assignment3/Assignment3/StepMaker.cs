@@ -15,8 +15,7 @@ namespace Assignment3
 
             for (int i = 0; i < maxIndex - 1; ++i)
             {
-
-                if (stepsList[i + 1] - stepsList[i] > 10)
+                if (stepsList[i + 1] - stepsList[i] > 10 || stepsList[i + 1] - stepsList[i] < -10)
                 {
                     AddStepsRecursive(stepsList, noise, level, i);
                 }
@@ -36,7 +35,7 @@ namespace Assignment3
             int initialSteps = steps.Count;
             int i;
 
-            double currentNoise;
+            int currentNoise;
 
             if (level == 0)
             {
@@ -45,16 +44,16 @@ namespace Assignment3
 
                 currentNoise = noise.GetNext(level);
 
-                int firstNum = (int)(min * 0.8 + max * 0.2 + currentNoise);
+                int firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
                 currentNoise = noise.GetNext(level);
 
-                int secondNum = (int)(min * 0.6 + max * 0.4 + currentNoise);
+                int secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
                 currentNoise = noise.GetNext(level);
 
-                int thirdNum = (int)(min * 0.4 + max * 0.6 + currentNoise);
+                int thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
                 currentNoise = noise.GetNext(level);
 
-                int fourthNum = (int)(min * 0.2 + max * 0.8 + currentNoise);
+                int fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
 
                 List<int> stepsInserted = new List<int>() { firstNum, secondNum, thirdNum, fourthNum };
                 steps.InsertRange(index + 1, stepsInserted);
@@ -67,20 +66,23 @@ namespace Assignment3
                 int iterations = index + 5;
                 for (i = index; i < iterations; ++i)
                 {
-                    if (steps[i + 1] - steps[i] > 10)
+                    if (steps[i + 1] - steps[i] > 10 || steps[i + 1] - steps[i] < -10)
                     {
                         int min = steps[i];
                         int max = steps[i + 1];
 
                         currentNoise = noise.GetNext(level);
 
-                        int firstNum = (int)(min * 0.8 + max * 0.2 + currentNoise);
+                        int firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
                         currentNoise = noise.GetNext(level);
-                        int secondNum = (int)(min * 0.6 + max * 0.4 + currentNoise);
+
+                        int secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
                         currentNoise = noise.GetNext(level);
-                        int thirdNum = (int)(min * 0.4 + max * 0.6 + currentNoise);
+
+                        int thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
                         currentNoise = noise.GetNext(level);
-                        int fourthNum = (int)(min * 0.2 + max * 0.8 + currentNoise);
+
+                        int fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
 
                         List<int> stepsInserted = new List<int>() { firstNum, secondNum, thirdNum, fourthNum };
                         steps.InsertRange(i + 1, stepsInserted);
