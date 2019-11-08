@@ -64,14 +64,14 @@ namespace Assignment3
             }
 
             //testSteps = new int[] { 116, 107, 127, 125, 185 };
-            testSteps = new int[] { 185, 125, 127, 107, 116 };
+            testSteps = new int[] { 97, -18, 52, 101, 194 };
 
             newSteps = StepMaker.MakeSteps(testSteps, new ZeroNoise());
-            expectedValue = new List<int> { 185, 182, 180, 177, 175, 173, 170, 168, 165, 163, 161, 158, 156, 153, 151, 149, 146, 144, 141, 139, 137, 134, 132, 129, 127, 125, 127, 123, 119, 115, 111, 107, 116 };
+            expectedValue = new List<int> { 97, 92, 87, 83, 78, 74, 69, 64, 60, 55, 51, 46, 41, 37, 32, 28, 23, 18, 14, 9, 5, 0, -4, -8, -13, -18, -15, -12, -9, -6, -4, -1, 1, 4, 7, 10, 12, 15, 18, 21, 24, 26, 29, 32, 35, 38, 40, 43, 46, 49, 52, 61, 71, 81, 91, 101, 104, 108, 111, 115, 119, 122, 126, 130, 134, 138, 141, 145, 148, 152, 156, 159, 163, 167, 171, 175, 178, 182, 186, 190, 194 };
             for (int i = 0; i < newSteps.Count; i++)
             {
-                Debug.Assert(expectedValue[i] == newSteps[i]);
-                // Console.Write($"{newSteps[i]} ");
+               Debug.Assert(expectedValue[i] == newSteps[i]);
+               Console.Write($"{newSteps[i]} ");
             }
             
         }

@@ -42,18 +42,70 @@ namespace Assignment3
                 int min = steps[index];
                 int max = steps[index + 1];
 
+                int firstNum;
+                int secondNum;
+                int thirdNum;
+                int fourthNum;
+
                 currentNoise = noise.GetNext(level);
 
-                int firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
+                if (min * 0.8 + max * 0.2 > 0)
+                {
+                    firstNum = (int)(min * 0.8 + max * 0.2 + 0.00000001) + currentNoise;
+                } 
+                else if (min * 0.8 + max * 0.2 < 0)
+                {
+                    firstNum = (int)(min * 0.8 + max * 0.2 - 0.00000001) + currentNoise;
+                }
+                else
+                {
+                    firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
+                }
+
                 currentNoise = noise.GetNext(level);
 
-                int secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
+                if (min * 0.6 + max * 0.4 > 0)
+                {
+                    secondNum = (int)(min * 0.6 + max * 0.4 + 0.00000001) + currentNoise;
+                }
+                else if (min * 0.8 + max * 0.2 < 0)
+                {
+                    secondNum = (int)(min * 0.6 + max * 0.4 - 0.00000001) + currentNoise;
+                }
+                else
+                {
+                    secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
+                }
+
                 currentNoise = noise.GetNext(level);
 
-                int thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
+                if (min * 0.4 + max * 0.6 > 0)
+                {
+                    thirdNum = (int)(min * 0.4 + max * 0.6 + 0.00000001) + currentNoise;
+                }
+                else if (min * 0.8 + max * 0.2 < 0)
+                {
+                    thirdNum = (int)(min * 0.4 + max * 0.6 - 0.00000001) + currentNoise;
+                }
+                else
+                {
+                    thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
+                }
+
                 currentNoise = noise.GetNext(level);
 
-                int fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
+                if (min * 0.2 + max * 0.8 > 0)
+                {
+                    fourthNum = (int)(min * 0.2 + max * 0.8 + 0.00000001) + currentNoise;
+                }
+                else if (min * 0.8 + max * 0.2 < 0)
+                {
+                    fourthNum = (int)(min * 0.2 + max * 0.8 - 0.00000001) + currentNoise;
+                }
+                else
+                {
+                    fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
+                }
 
                 List<int> stepsInserted = new List<int>() { firstNum, secondNum, thirdNum, fourthNum };
                 steps.InsertRange(index + 1, stepsInserted);
@@ -71,18 +123,70 @@ namespace Assignment3
                         int min = steps[i];
                         int max = steps[i + 1];
 
+                        int firstNum;
+                        int secondNum;
+                        int thirdNum;
+                        int fourthNum;
+
                         currentNoise = noise.GetNext(level);
 
-                        int firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
+                        if (min * 0.8 + max * 0.2 > 0)
+                        {
+                            firstNum = (int)(min * 0.8 + max * 0.2 + 0.00000001) + currentNoise;
+                        }
+                        else if (min * 0.8 + max * 0.2 < 0)
+                        {
+                            firstNum = (int)(min * 0.8 + max * 0.2 - 0.00000001) + currentNoise;
+                        }
+                        else
+                        {
+                            firstNum = (int)(min * 0.8 + max * 0.2) + currentNoise;
+                        }
+
                         currentNoise = noise.GetNext(level);
 
-                        int secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
+                        if (min * 0.6 + max * 0.4 > 0)
+                        {
+                            secondNum = (int)(min * 0.6 + max * 0.4 + 0.00000001) + currentNoise;
+                        }
+                        else if (min * 0.8 + max * 0.2 < 0)
+                        {
+                            secondNum = (int)(min * 0.6 + max * 0.4 - 0.00000001) + currentNoise;
+                        }
+                        else
+                        {
+                            secondNum = (int)(min * 0.6 + max * 0.4) + currentNoise;
+                        }
+
                         currentNoise = noise.GetNext(level);
 
-                        int thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
+                        if (min * 0.4 + max * 0.6 > 0)
+                        {
+                            thirdNum = (int)(min * 0.4 + max * 0.6 + 0.00000001) + currentNoise;
+                        }
+                        else if (min * 0.8 + max * 0.2 < 0)
+                        {
+                            thirdNum = (int)(min * 0.4 + max * 0.6 - 0.00000001) + currentNoise;
+                        }
+                        else
+                        {
+                            thirdNum = (int)(min * 0.4 + max * 0.6) + currentNoise;
+                        }
+
                         currentNoise = noise.GetNext(level);
 
-                        int fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
+                        if (min * 0.2 + max * 0.8 > 0)
+                        {
+                            fourthNum = (int)(min * 0.2 + max * 0.8 + 0.00000001) + currentNoise;
+                        }
+                        else if (min * 0.8 + max * 0.2 < 0)
+                        {
+                            fourthNum = (int)(min * 0.2 + max * 0.8 - 0.00000001) + currentNoise;
+                        }
+                        else
+                        {
+                            fourthNum = (int)(min * 0.2 + max * 0.8) + currentNoise;
+                        }
 
                         List<int> stepsInserted = new List<int>() { firstNum, secondNum, thirdNum, fourthNum };
                         steps.InsertRange(i + 1, stepsInserted);
