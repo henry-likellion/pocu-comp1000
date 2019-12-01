@@ -99,11 +99,11 @@ namespace Assignment4
             int filterWidth = filter.GetLength(0);
             int filterLength = filter.GetLength(1);
             int[,] matrixRedColor = new int[imageWidth, imageHeight];
-            double[,] updatedMatrixRedColor = new double[imageWidth, imageHeight];
+            int[,] updatedMatrixRedColor = new int[imageWidth, imageHeight];
             int[,] matrixGreenColor = new int[imageWidth, imageHeight];
-            double[,] updatedMatrixGreenColor = new double[imageWidth, imageHeight];
+            int[,] updatedMatrixGreenColor = new int[imageWidth, imageHeight];
             int[,] matrixBlueColor = new int[imageWidth, imageHeight];
-            double[,] updatedMatrixBlueColor = new double[imageWidth, imageHeight];
+            int[,] updatedMatrixBlueColor = new int[imageWidth, imageHeight];
 
             /*
             double[,] sampleMatrix = new double[,] {
@@ -194,9 +194,9 @@ namespace Assignment4
                             // Console.Write($"{filterConvolution[i, j]} ");
                             if (x - centerIndex + i >= 0 && x - centerIndex + i < imageWidth && y - centerIndex + j >= 0 && y - centerIndex + j < imageHeight)
                             {
-                                updatedMatrixRedColor[x, y] += matrixRedColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j];
-                                updatedMatrixGreenColor[x, y] += matrixBlueColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j];
-                                updatedMatrixBlueColor[x, y] += matrixBlueColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j];                                
+                                updatedMatrixRedColor[x, y] += (int)(matrixRedColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
+                                updatedMatrixGreenColor[x, y] += (int)(matrixGreenColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
+                                updatedMatrixBlueColor[x, y] += (int)(matrixBlueColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);                                
                             }
                         }
                     }
@@ -204,7 +204,11 @@ namespace Assignment4
                     newImage.SetPixel(x, y, Color.FromArgb((int)updatedMatrixRedColor[x, y], (int)updatedMatrixGreenColor[x, y], (int)updatedMatrixBlueColor[x, y]));
                 }
             }
-                    
+
+            Console.WriteLine($"{matrixRedColor[0, 0]}");
+            Console.WriteLine($"{updatedMatrixRedColor[0, 0]}");
+            Console.WriteLine($"{matrixRedColor[125, 125]}");
+            Console.WriteLine($"{updatedMatrixRedColor[125, 125]}");
 
             return newImage;
         }

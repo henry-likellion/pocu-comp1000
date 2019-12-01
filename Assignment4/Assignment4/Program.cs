@@ -109,7 +109,6 @@ namespace Assignment4
                 assertBitmapEqual(expected, newImage, 0);
             }
 
-            
             using (FileStream fs = File.OpenRead(IMAGE_FILE_NAME))
             using (FileStream fs2 = File.OpenRead("earth_box_expected.png"))
             using (Bitmap image = new Bitmap(fs))
