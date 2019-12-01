@@ -40,7 +40,7 @@ namespace Assignment4
                 {
                     if (i - j >= 0)
                     {
-                        filterConvolution[i - j] = filter[centerIndex +j];
+                        filterConvolution[i - j] = filter[centerIndex + j];
                     }
                     
                     if (i + j < signalLength)
@@ -93,19 +93,20 @@ namespace Assignment4
         
         public static Bitmap ConvolveImage(Bitmap bitmap, double[,] filter)
         {
-            int x, y;
+            int x;
+            int y;
             int imageWidth = bitmap.Width;
             int imageHeight = bitmap.Height;
             int filterWidth = filter.GetLength(0);
             int filterLength = filter.GetLength(1);
             int[,] matrixRedColor = new int[imageWidth, imageHeight];
-            int[,] updatedMatrixRedColor = new int[imageWidth, imageHeight];
+            double[,] updatedMatrixRedColor = new double[imageWidth, imageHeight];
             int[,] matrixGreenColor = new int[imageWidth, imageHeight];
-            int[,] updatedMatrixGreenColor = new int[imageWidth, imageHeight];
+            double[,] updatedMatrixGreenColor = new double[imageWidth, imageHeight];
             int[,] matrixBlueColor = new int[imageWidth, imageHeight];
-            int[,] updatedMatrixBlueColor = new int[imageWidth, imageHeight];
+            double[,] updatedMatrixBlueColor = new double[imageWidth, imageHeight];
 
-            /*
+            
             double[,] sampleMatrix = new double[,] {
                 { 10, 20, 30, 50, 20 },
                 { 20, 40, 50, 30, 10 },
@@ -115,7 +116,7 @@ namespace Assignment4
             };
 
             double[,] newSampleMatrix = new double[5, 5];
-            */
+            
 
             int centerIndex = filterWidth / 2;
 
@@ -140,7 +141,7 @@ namespace Assignment4
                 Console.WriteLine();
             }
 
-            /*
+            
             for (x = 0; x < sampleMatrix.GetLength(0); ++x)
             {
                 for (y = 0; y < sampleMatrix.GetLength(1); ++y)
@@ -168,7 +169,7 @@ namespace Assignment4
                 Console.WriteLine();
             }
 
-            */
+            
 
                     
             for (x = 0; x < imageWidth; ++x)
@@ -194,11 +195,45 @@ namespace Assignment4
                             // Console.Write($"{filterConvolution[i, j]} ");
                             if (x - centerIndex + i >= 0 && x - centerIndex + i < imageWidth && y - centerIndex + j >= 0 && y - centerIndex + j < imageHeight)
                             {
-                                updatedMatrixRedColor[x, y] += (int)(matrixRedColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
-                                updatedMatrixGreenColor[x, y] += (int)(matrixGreenColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
-                                updatedMatrixBlueColor[x, y] += (int)(matrixBlueColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);                                
+                                updatedMatrixRedColor[x, y] += (matrixRedColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
+                                updatedMatrixGreenColor[x, y] += (matrixGreenColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);
+                                updatedMatrixBlueColor[x, y] += (matrixBlueColor[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j]);                                
                             }
+
+                            /*
+                            if (x - centerIndex + i >= 0 && x - centerIndex + i < 5 && y - centerIndex + j >= 0 && y - centerIndex + j < 5)
+                            {
+                                newSampleMatrix[x, y] += sampleMatrix[x - centerIndex + i, y - centerIndex + j] * filterConvolution[i, j];
+                            }
+                            */
                         }
+                    }
+
+                    if (updatedMatrixRedColor[x, y] < 0)
+                    {
+                        updatedMatrixRedColor[x, y] = 0;
+                    }
+                    else if (updatedMatrixRedColor[x, y] > 255)
+                    {
+                        updatedMatrixRedColor[x, y] = 255;
+                    }
+
+                    if (updatedMatrixGreenColor[x, y] < 0)
+                    {
+                        updatedMatrixGreenColor[x, y] = 0;
+                    }
+                    else if (updatedMatrixGreenColor[x, y] > 255)
+                    {
+                        updatedMatrixGreenColor[x, y] = 255;
+                    }
+
+                    if (updatedMatrixBlueColor[x, y] < 0)
+                    {
+                        updatedMatrixBlueColor[x, y] = 0;
+                    }
+                    else if (updatedMatrixBlueColor[x, y] > 255)
+                    {
+                        updatedMatrixBlueColor[x, y] = 255;
                     }
 
                     newImage.SetPixel(x, y, Color.FromArgb((int)updatedMatrixRedColor[x, y], (int)updatedMatrixGreenColor[x, y], (int)updatedMatrixBlueColor[x, y]));
@@ -207,8 +242,29 @@ namespace Assignment4
 
             Console.WriteLine($"{matrixRedColor[0, 0]}");
             Console.WriteLine($"{updatedMatrixRedColor[0, 0]}");
-            Console.WriteLine($"{matrixRedColor[125, 125]}");
+            Console.WriteLine($"{sampleMatrix[1, 0]}");
+            Console.WriteLine($"{newSampleMatrix[0, 0]}");
+            Console.WriteLine($"{matrixRedColor[126, 125]}");
             Console.WriteLine($"{updatedMatrixRedColor[125, 125]}");
+
+            Console.WriteLine($"{imageWidth}");
+            for (int i = 240; i < 250; ++i)
+            {
+                for (int j = 240; j < 250; ++j)
+                {
+                    Console.Write($"{matrixRedColor[i, j]} ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("original");
+            for (int i = 240; i < 250; ++i)
+            {
+                for (int j = 240; j < 250; ++j)
+                { 
+                    Console.Write($"{updatedMatrixRedColor[i,j]} ");
+                }
+                Console.WriteLine();
+            }
 
             return newImage;
         }
